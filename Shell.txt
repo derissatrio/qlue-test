@@ -1,0 +1,5 @@
+Check status apache2:
+- sudo systemctl status apache2
+
+set:
+- sed -i 's/Mango/Apple/g' mig33/inner.folder/1.txt

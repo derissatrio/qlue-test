@@ -7,7 +7,6 @@ const printToTerminal = (array) => {
 
 const algorithmic = (n) => {
   const result = [];
-  console.log(n);
   for (let i = n - 1; i > 0; i--) {
     let temp = [i];
     let counter = i;
@@ -25,7 +24,9 @@ const algorithmic = (n) => {
           }
           let done = false;
           while (!done) {
-            console.log(counter, i, j);
+            if (counter + j > n) {
+              done = true;
+            }
             counter += j;
             temp.push(j);
             if (counter === n) {
