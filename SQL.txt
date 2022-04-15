@@ -1,0 +1,29 @@
+1 ======================
+
+select p."name", SUM((CAST(i.price as INTEGER) * t."total")) as total_price from Persons p 
+join  Transactions t on t.person_id = p.id 
+join  Items i on t.item_id = i.id
+group by p."name";
+
+========================
+
+
+2 ======================
+
+select p."name", i."name" as "Item", sum(cast(i.price as INTEGER) * t.total) as total_price from Persons p
+join Transactions t on t.person_id = p.id 
+join Items i on t.item_id = i.id
+where t."date" between '2020-01-1' and '2020-01-25'
+group by p."name", i."name";
+
+========================
+
+
+3 ======================
+
+select p."name" from Persons p
+join Transactions t on t.person_id = p.id 
+join Items i on t.item_id = i.id
+order by t.total desc;
+
+
